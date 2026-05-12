@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thalapathy Vijay — The Legend</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #D4A017;
+    --deep-gold: #8B6914;
+    --dark: #0a0a0a;
+    --dark2: #111111;
+    --dark3: #1a1a1a;
+    --red: #C0392B;
+    --text: #f0e6cc;
+    --muted: #a89070;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 60% 40%, #1a0f00 0%, #0a0a0a 70%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(212,160,23,0.03) 60px, rgba(212,160,23,0.03) 61px),
+      repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(212,160,23,0.03) 60px, rgba(212,160,23,0.03) 61px);
+  }
+
+  .gold-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(212,160,23,0.15);
+    animation: pulse-ring 4s ease-in-out infinite;
+  }
+  .gold-ring:nth-child(1) { width: 400px; height: 400px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 0s; }
+  .gold-ring:nth-child(2) { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 1s; border-color: rgba(212,160,23,0.08); }
+  .gold-ring:nth-child(3) { width: 800px; height: 800px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 2s; border-color: rgba(212,160,23,0.04); }
+
+  @keyframes pulse-ring {
+    0%, 100% { opacity: 0.4; transform: translate(-50%,-50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%,-50%) scale(1.02); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .crown {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(212,160,23,0.6));
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #D4A017 0%, #FFF0A0 40%, #D4A017 70%, #8B6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    text-shadow: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle-tamil {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    margin-bottom: 1.5rem;
+    opacity: 0.85;
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    font-weight: 500;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+    border: 1px solid rgba(212,160,23,0.25);
+    padding: 1.2rem 2rem;
+    position: relative;
+  }
+  .stat::before, .stat::after {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 0.6rem;
+    opacity: 0.6;
+  }
+  .stat::before { top: -5px; left: -5px; }
+  .stat::after { bottom: -5px; right: -5px; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    padding: 1rem 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--text);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+
+  .gold-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1.5rem auto 0;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-image-frame {
+    position: relative;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, #1a1200 0%, #2a1f00 50%, #1a0f00 100%);
+    border: 1px solid rgba(212,160,23,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .image-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(212,160,23,0.15);
+    pointer-events: none;
+  }
+
+  .corner-deco {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.6;
+  }
+  .corner-deco.tl { top: -5px; left: -5px; border-width: 2px 0 0 2px; }
+  .corner-deco.tr { top: -5px; right: -5px; border-width: 2px 2px 0 0; }
+  .corner-deco.bl { bottom: -5px; left: -5px; border-width: 0 0 2px 2px; }
+  .corner-deco.br { bottom: -5px; right: -5px; border-width: 0 2px 2px 0; }
+
+  .about-text p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+  .about-text p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .about-tag {
+    display: inline-block;
+    border: 1px solid rgba(212,160,23,0.3);
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    margin: 0.3rem 0.3rem 0 0;
+    font-weight: 600;
+  }
+
+  /* MOVIES */
+  .movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .movie-card {
+    background: var(--dark2);
+    border: 1px solid rgba(212,160,23,0.15);
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .movie-card:hover {
+    border-color: rgba(212,160,23,0.5);
+    background: #181005;
+    transform: translateY(-4px);
+  }
+
+  .movie-year {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+    display: block;
+    opacity: 0.7;
+  }
+
+  .movie-title-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .movie-role {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .movie-rating {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+  }
+
+  /* QUOTES */
+  .quotes-section {
+    background: var(--dark2);
+    border-top: 1px solid rgba(212,160,23,0.1);
+    border-bottom: 1px solid rgba(212,160,23,0.1);
+    padding: 5rem 2rem;
+  }
+
+  .quote-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .quote-mark {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    line-height: 0.5;
+    opacity: 0.3;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .quote-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+  }
+
+  .quote-source {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  .quote-dots {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(212,160,23,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .dot.active { background: var(--gold); transform: scale(1.3); }
+
+  /* AWARDS */
+  .awards-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .award-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--dark2);
+    border: 1px solid rgba(212,160,23,0.1);
+    border-left: 3px solid var(--gold);
+    transition: all 0.3s;
+  }
+  .award-item:hover {
+    background: #150e00;
+    border-color: rgba(212,160,23,0.3);
+    border-left-color: var(--gold);
+  }
+
+  .award-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .award-title {
+    font-size: 1rem;
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .award-org {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* PHILANTHROPY */
+  .philanthropy-text {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .philanthropy-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+  .philanthropy-text strong { color: var(--text); }
+
+  .phil-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .phil-card {
+    background: var(--dark2);
+    border: 1px solid rgba(212,160,23,0.15);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .phil-card:hover { border-color: rgba(212,160,23,0.4); transform: translateY(-3px); }
+  .phil-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+  .phil-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--text); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .phil-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+
+  /* FOOTER */
+  footer {
+    background: #050505;
+    border-top: 1px solid rgba(212,160,23,0.15);
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .footer-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+    color: rgba(168,144,112,0.4);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* SCROLL ANIMATION */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .phil-cards { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">✦ Thalapathy</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#movies">Filmography</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#philanthropy">Legacy</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="gold-ring"></div>
+  <div class="gold-ring"></div>
+  <div class="gold-ring"></div>
+  <div class="hero-content">
+    <span class="crown">👑</span>
+    <h1 class="hero-title">VIJAY</h1>
+    <p class="hero-subtitle-tamil">Thalapathy</p>
+    <p class="hero-tagline">The People's Hero · The Legend of Tamil Cinema</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">68+</span>
+        <span class="stat-label">Films</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">30+</span>
+        <span class="stat-label">Years</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100Cr+</span>
+        <span class="stat-label">Fans</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Impact</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header fade-up">
+    <span class="section-label">The Man. The Myth.</span>
+    <h2 class="section-title">Born To Rule</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-image-frame fade-up">
+      <div class="image-placeholder">
+        <span style="font-size:5rem; filter: drop-shadow(0 0 30px rgba(212,160,23,0.5));">⭐</span>
+      </div>
+      <div class="corner-deco tl"></div>
+      <div class="corner-deco tr"></div>
+      <div class="corner-deco bl"></div>
+      <div class="corner-deco br"></div>
+    </div>
+    <div class="about-text fade-up">
+      <p>
+        <strong>Joseph Vijay</strong>, born on June 22, 1974, in Chennai, Tamil Nadu, is one of the most celebrated and beloved actors in Indian cinema. Known to millions simply as <strong>Thalapathy</strong> — meaning "Commander" — he has reigned over Tamil cinema for over three decades.
+      </p>
+      <p>
+        Son of legendary filmmaker <strong>S. A. Chandrasekhar</strong>, Vijay made his debut as a child actor before stepping into lead roles. With unmatched screen presence, extraordinary dancing talent, and a magnetic personality, he became the undisputed king of Tamil cinema.
+      </p>
+      <p>
+        Beyond cinema, Vijay is known for his <strong>compassion and philanthropy</strong> — feeding millions through his Vijay Makkal Iyakkam initiative, and earning the love of people from all walks of life.
+      </p>
+      <div style="margin-top: 2rem;">
+        <span class="about-tag">Actor</span>
+        <span class="about-tag">Dancer</span>
+        <span class="about-tag">Humanitarian</span>
+        <span class="about-tag">Thalapathy</span>
+        <span class="about-tag">Politician</span>
+        <span class="about-tag">Icon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOVIES -->
+<section id="movies" style="max-width:1100px; margin: 0 auto; padding: 6rem 2rem;">
+  <div class="section-header fade-up">
+    <span class="section-label">Filmography</span>
+    <h2 class="section-title">Iconic Films</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="movies-grid fade-up">
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2023</span>
+      <div class="movie-title-text">Leo</div>
+      <div class="movie-role">Parthiban / Leo Das</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2022</span>
+      <div class="movie-title-text">Beast</div>
+      <div class="movie-role">RAW Agent Veera Raghavan</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2021</span>
+      <div class="movie-title-text">Master</div>
+      <div class="movie-role">John Durairaj "JD"</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2019</span>
+      <div class="movie-title-text">Bigil</div>
+      <div class="movie-role">Michael / Rayappan</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2018</span>
+      <div class="movie-title-text">Sarkar</div>
+      <div class="movie-role">Sundar Ramasamy</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2017</span>
+      <div class="movie-title-text">Mersal</div>
+      <div class="movie-role">Maaran / Vetri / Arjun</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2016</span>
+      <div class="movie-title-text">Theri</div>
+      <div class="movie-role">Joseph Kuruvila</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2015</span>
+      <div class="movie-title-text">Puli</div>
+      <div class="movie-role">Marudheeran</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2014</span>
+      <div class="movie-title-text">Kaththi</div>
+      <div class="movie-role">Kathiresan / Jeeva</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2012</span>
+      <div class="movie-title-text">Thuppakki</div>
+      <div class="movie-role">Jagadish "Jaguar" Kumar</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2005</span>
+      <div class="movie-title-text">Ghilli</div>
+      <div class="movie-role">Velu</div>
+    </div>
+    <div class="movie-card">
+      <span class="movie-rating">★★★★★</span>
+      <span class="movie-year">2000</span>
+      <div class="movie-title-text">Minsara Kanna</div>
+      <div class="movie-role">Minsara Kanna</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<div class="quotes-section">
+  <div class="quote-carousel">
+    <span class="section-label" style="text-align:center; display:block; margin-bottom:3rem;">Words of Thalapathy</span>
+    <span class="quote-mark">"</span>
+    <div class="quote-text" id="quote-text">
+      Work hard in silence, let your success make the noise. Be the change you want to see in this world.
+    </div>
+    <div class="quote-source" id="quote-source">— Vijay, Master (2021)</div>
+    <div class="quote-dots">
+      <div class="dot active" onclick="showQuote(0)"></div>
+      <div class="dot" onclick="showQuote(1)"></div>
+      <div class="dot" onclick="showQuote(2)"></div>
+      <div class="dot" onclick="showQuote(3)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<section id="awards" style="max-width:1100px; margin: 0 auto; padding: 6rem 2rem;">
+  <div class="section-header fade-up">
+    <span class="section-label">Recognition</span>
+    <h2 class="section-title">Awards & Honours</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="awards-list fade-up">
+    <div class="award-item">
+      <span class="award-icon">🏆</span>
+      <div>
+        <div class="award-title">Best Actor — Vijay Awards</div>
+        <div class="award-org">Multiple wins · Vijay Television</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">🥇</span>
+      <div>
+        <div class="award-title">Favourite Hero — SIIMA Awards</div>
+        <div class="award-org">South Indian International Movie Awards</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">🎖️</span>
+      <div>
+        <div class="award-title">Best Actor — Edison Awards</div>
+        <div class="award-org">Multiple categories · Tamil Nadu</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">🌟</span>
+      <div>
+        <div class="award-title">Most Followed Tamil Actor</div>
+        <div class="award-org">Social Media · 100M+ fanbase</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">🎬</span>
+      <div>
+        <div class="award-title">Kalaimamani Award</div>
+        <div class="award-org">Government of Tamil Nadu</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">👑</span>
+      <div>
+        <div class="award-title">Highest Paid Tamil Actor</div>
+        <div class="award-org">Forbes India · Multiple Years</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">🏅</span>
+      <div>
+        <div class="award-title">Best Actor — Tamil Nadu State Film Awards</div>
+        <div class="award-org">Government Recognition</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">⭐</span>
+      <div>
+        <div class="award-title">Most Searched Tamil Celebrity</div>
+        <div class="award-org">Google India Year in Search</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILANTHROPY -->
+<section id="philanthropy" style="max-width:1100px; margin: 0 auto; padding: 6rem 2rem;">
+  <div class="section-header fade-up">
+    <span class="section-label">The Legacy</span>
+    <h2 class="section-title">Heart of Gold</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="philanthropy-text fade-up">
+    <p>
+      Vijay's impact extends far beyond cinema. Through his <strong>Vijay Makkal Iyakkam</strong>, he has touched millions of lives across Tamil Nadu with unwavering generosity and compassion.
+    </p>
+  </div>
+  <div class="phil-cards fade-up">
+    <div class="phil-card">
+      <span class="phil-icon">🍚</span>
+      <div class="phil-title">Food For All</div>
+      <p class="phil-desc">Distributed free meals to lakhs of families during festivals, floods, and the COVID-19 pandemic across Tamil Nadu.</p>
+    </div>
+    <div class="phil-card">
+      <span class="phil-icon">📚</span>
+      <div class="phil-title">Education Aid</div>
+      <p class="phil-desc">Supported thousands of students with scholarships, stationery, and school supplies to build a brighter future.</p>
+    </div>
+    <div class="phil-card">
+      <span class="phil-icon">🏥</span>
+      <div class="phil-title">Health Camps</div>
+      <p class="phil-desc">Organized free medical camps reaching rural communities with healthcare, medicines, and doctor consultations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">✦ Thalapathy Vijay ✦</span>
+  <p class="footer-text" style="margin-bottom: 0.5rem; opacity: 0.6; color: var(--muted);">
+    "From the bottom of my heart, thank you for your love."
+  </p>
+  <p class="footer-text">Fan tribute website · All love, all respect · Nandri</p>
+</footer>
+
+<script>
+  const quotes = [
+    {
+      text: "Work hard in silence, let your success make the noise. Be the change you want to see in this world.",
+      source: "— Vijay, Master (2021)"
+    },
+    {
+      text: "The strength of a lion lies not in his roar, but in his silence before the leap.",
+      source: "— Vijay, Leo (2023)"
+    },
+    {
+      text: "I am nothing without my fans. Their love is my biggest award, bigger than any trophy.",
+      source: "— Vijay, at Vijay Awards"
+    },
+    {
+      text: "The real power is with the people. When we unite for the right cause, nothing can stop us.",
+      source: "— Vijay, Sarkar (2018)"
+    }
+  ];
+
+  let currentQuote = 0;
+
+  function showQuote(index) {
+    const qt = document.getElementById('quote-text');
+    const qs = document.getElementById('quote-source');
+    const dots = document.querySelectorAll('.dot');
+    qt.style.opacity = '0';
+    qs.style.opacity = '0';
+    setTimeout(() => {
+      currentQuote = index;
+      qt.textContent = quotes[index].text;
+      qs.textContent = quotes[index].source;
+      qt.style.opacity = '1';
+      qs.style.opacity = '1';
+    }, 300);
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  document.getElementById('quote-text').style.transition = 'opacity 0.3s';
+  document.getElementById('quote-source').style.transition = 'opacity 0.3s';
+
+  setInterval(() => {
+    showQuote((currentQuote + 1) % quotes.length);
+  }, 5000);
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
